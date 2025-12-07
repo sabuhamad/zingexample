@@ -1,11 +1,7 @@
 import React from 'react';
 import ReviewCard from './ReviewCard';
-import { withExperiment } from "../../probat/runtime";
-import { PROBAT_COMPONENTS, PROBAT_REGISTRIES } from "../../probat/index";
 
-const __PROBAT_KEY__ = "src/components/Hero.jsx";
-
-const Hero = ({ probat }) => {
+const Hero = () => {
     return (
         <div className="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -19,7 +15,7 @@ const Hero = ({ probat }) => {
                             We drive growth with Marketing, Custom Software Development, and AI Solutions to boost your revenue.
                         </p>
                         <div className="flex justify-start">
-                            <a href="#" data-probat-conversion="true" className="bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-md shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+                            <a href="#" className="bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-md shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
                                 Fuel Your Business
                             </a>
                         </div>
@@ -38,11 +34,4 @@ const Hero = ({ probat }) => {
     );
 };
 
-// Probat Generate Lines.
-export default (() => {
-  const meta = PROBAT_COMPONENTS[__PROBAT_KEY__];
-  const reg  = PROBAT_REGISTRIES[__PROBAT_KEY__];
-  return (meta?.proposalId && reg)
-    ? withExperiment(Hero, { proposalId: meta.proposalId, registry: reg })
-    : Hero;
-})();
+export default Hero;
