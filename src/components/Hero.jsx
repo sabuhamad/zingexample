@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
+import { withExperiment } from "@probat/react";
 import ReviewCard from './ReviewCard';
 
-const Hero = () => {
+const __PROBAT_COMPONENT_PATH__ = "src/components/Hero.jsx";
+
+const Hero = ({ probat }) => {
     return (
         <div className="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -15,7 +18,8 @@ const Hero = () => {
                             We drive growth with Marketing, Custom Software Development, and AI Solutions to boost your revenue.
                         </p>
                         <div className="flex justify-start">
-                            <a href="#" className="bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-md shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+                            <a href="#" className="bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-md shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1"
+                               data-probat-conversion="true">
                                 Fuel Your Business
                             </a>
                         </div>
@@ -34,4 +38,6 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default withExperiment(Hero, {
+    componentPath: __PROBAT_COMPONENT_PATH__
+});
